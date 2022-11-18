@@ -52,10 +52,6 @@ int main(void) {
    if (msgsnd(msqid, &buf, len, 0) == -1) /* +1 for '\0' */
       perror("msgsnd");
 
-   if (msgctl(msqid, IPC_RMID, NULL) == -1) {
-      perror("msgctl");
-      exit(1);
-   }
    printf("message queue: done sending messages.\n");
    return 0;
 }

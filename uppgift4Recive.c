@@ -40,6 +40,10 @@ int main(void) {
       if (toend == 1)
       break;
    }
+   if (msgctl(msqid, IPC_RMID, NULL) == -1) {
+      perror("msgctl");
+      exit(1);
+   }
    printf("message queue: done receiving messages.\n");
    if(!system("rm msgq.txt")){
    }
